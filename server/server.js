@@ -14,7 +14,9 @@ const rollbar = new Rollbar({
   captureUnhandledRejections: true,
 });
 
-const ctrl = require('./controllers/controller')
+let students = []
+
+// const ctrl = require('./controllers/controller')
 
 // app.get('/', ctrl.filePath)
 
@@ -23,29 +25,29 @@ app.get('/', (req, res) => {
   rollbar.info("html file served successfully");
 });
 
-app.post('/api/student', (req, res) => {
-   res.status(200)
-})
-
-
 // app.post('/api/student', (req, res) => {
-//     let { name } = req.body;
-//     name = name.trim();
-
-//     const index = students.findIndex((studentName) => studentName === name);
-
-//     if (index === -1 && name !== "") {
-//         students.push(name);
-//         rollbar.log("Student added succussfully", { author: "Clint" });
-//         res.status(200).send(students);
-//     } else if (name === "") {
-//         rollbar.error("No name given");
-//         res.status(400).send("must provide a name.");
-//     } else {
-//         rollbar.error("Student already exists");
-//         res.status(400).send("that student already exists");
-//     }
+//    res.status(200)
 // })
+
+
+app.post('/api/student', (req, res) => {
+    let { name } = req.body;
+    name = name.trim();
+
+    const index = students.findIndex((studentName) => studentName === name);
+
+    if (index === -1 && name !== "") {
+        students.push(name);
+        rollbar.log("Student added succussfully", { author: "Clint" });
+        res.status(200).send(students);
+    } else if (name === "") {
+        rollbar.error("No name given");
+        res.status(400).send("must provide a name.");
+    } else {
+        rollbar.error("Student already exists");
+        res.status(400).send("that student already exists");
+    }
+})
 
 
 
