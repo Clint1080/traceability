@@ -14,9 +14,12 @@ app.use("/main", express.static("./public/main.css"));
 
 const ctrl = require('./controllers/controller')
 
-app.get('/', ctrl.filePath)
+// app.get('/', ctrl.filePath)
 
-
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "./public/index.html"));
+  rollbar.info("html file served successfully");
+});
 
 
 
