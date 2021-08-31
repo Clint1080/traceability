@@ -14,7 +14,7 @@ const rollbar = new Rollbar({
   captureUnhandledRejections: true,
 });
 
-const ctrl = require('./controllers/controller')
+// const ctrl = require('./controllers/controller')
 const students = []
 
 // app.get('/', ctrl.filePath)
