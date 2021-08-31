@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/api/student', (req, res) => {
-    console.log('hit')
+   res.status(200)
 })
 
 
