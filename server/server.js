@@ -12,7 +12,7 @@ app.use("/main", express.static("./public/main.css"));
 //   captureUnhandledRejections: true,
 // });
 
-const ctrl = require('./controllers/controller')
+// const ctrl = require('./controllers/controller')
 
 // app.get('/', ctrl.filePath)
 
