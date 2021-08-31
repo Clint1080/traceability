@@ -14,7 +14,7 @@ const rollbar = new Rollbar({
   captureUnhandledRejections: true,
 });
 
-let students = []
+const students = []
 
 // const ctrl = require('./controllers/controller')
 
