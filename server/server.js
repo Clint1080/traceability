@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 app.use('/maincss', express.static('./public/main.css'));
 app.use("/mainjs", express.static("./public/main.js"));
-app.use("/controllers", express.static("/controllers/controller.js"));
+app.use("/controllers", express.static("./controllers/controller.js"));
 
 
 const rollbar = new Rollbar({
@@ -17,7 +17,7 @@ const rollbar = new Rollbar({
 
 // const students = []
 
-const ctrl = require('./controllers')
+const ctrl = require('./controllers/controller.js')
 
 // app.get('/', ctrl.filePath)
 
