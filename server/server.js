@@ -4,7 +4,8 @@ const Rollbar = require('rollbar');
 
 const app = express();
 app.use(express.json());
-app.use('/main', express.static('./public/main.css'));
+app.use('/maincss', express.static('./public/main.css'));
+app.use("/mainjs", express.static("./public/main.js"));
 
 const rollbar = new Rollbar({
   accessToken: "0b10cd9475f44bd9aa5190690e22acf2",
