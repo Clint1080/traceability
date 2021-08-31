@@ -23,7 +23,10 @@ app.get('/', (req, res) => {
   rollbar.info("html file served successfully");
 });
 
-app.post('/api/student', ctrl.addStudent)
+app.post('/api/student', (req, res) => {
+    console.log('hit')
+})
+
 
 // app.post('/api/student', (req, res) => {
 //     let { name } = req.body;
