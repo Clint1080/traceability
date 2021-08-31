@@ -15,9 +15,8 @@ const rollbar = new Rollbar({
 });
 
 const ctrl = require('./controllers/controller')
-// const students = []
 
-app.get('/', ctrl.filePath)
+// app.get('/', ctrl.filePath)
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, "../public/index.html"));
