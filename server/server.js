@@ -23,6 +23,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, "../public/index.html"));
   rollbar.info("html file served successfully");
 });
+
 // app.post('/api/student', ctrl.addStudent)
 
 app.post('/api/student', (req, res) => {
@@ -49,5 +50,7 @@ app.post('/api/student', (req, res) => {
 
 
 const port = process.env.PORT || 4545;
+
+app.use(rollbar.errorHandler());
 
 app.listen(port, () => console.log(`Server running on ${port}`));
