@@ -15,6 +15,7 @@ const rollbar = new Rollbar({
 });
 
 const ctrl = require('./controllers/controller')
+const students = []
 
 // app.get('/', ctrl.filePath)
 
