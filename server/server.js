@@ -51,6 +51,6 @@ app.post('/api/student', ctrl.addStudent)
 
 const port = process.env.PORT || 4545;
 
-app.use(rollbar.errorHandler());
+// app.use(rollbar.errorHandler());
 
 app.listen(port, () => console.log(`Server running on ${port}`));
