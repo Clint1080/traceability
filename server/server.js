@@ -6,6 +6,7 @@ const app = express();
 app.use(express.json());
 app.use('/maincss', express.static('./public/main.css'));
 app.use("/mainjs", express.static("./public/main.js"));
+app.use('')
 
 const rollbar = new Rollbar({
   accessToken: "0b10cd9475f44bd9aa5190690e22acf2",
@@ -21,7 +22,30 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, "../public/index.html"));
   rollbar.info("html file served successfully");
 });
-app.post('/api/student', ctrl.addStudent)
+// app.post('/api/student', ctrl.addStudent)
+
+app.post('/api/student', (req, res) => {
+    let { name } = req.body;
+    name = name.trim();
+
+    const index = students.findIndex((studentName) => studentName === name);
+
+    if (index === -1 && name !== "") {
+        students.push(name);
+        rollbar.log("Student added succussfully", { author: "Clint" });
+        res.status(200).send(students);
+    } else if (name === "") {
+        rollbar.error("No name given");
+        res.status(400).send("must provide a name.");
+    } else {
+        rollbar.error("Student already exists");
+        res.status(400).send("that student already exists");
+    }
+})
+
+
+
+
 
 const port = process.env.PORT || 4545;
 
